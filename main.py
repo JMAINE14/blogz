@@ -56,6 +56,7 @@ def login():
     username = ''
     username_error = ''
     password_error = ''
+    password = ''
 
     if request.method == 'POST':
         username = request.form['username']
@@ -78,8 +79,9 @@ def login():
             return redirect('/blogs')
         else:
             flash('User password incorrect, or user does not exist', 'error')
+            password = ''
 
-    return render_template('login.html', username_error=username_error, password_error=password_error, username=username)
+    return render_template('login.html', username_error=username_error, password_error=password_error, username=username, password=password)
 
 
 @app.route('/signup', methods=['POST', 'GET'])
