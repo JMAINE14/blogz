@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Home!</h1>
+    <form method='post'>
+        <label>
+            New User:
+            <input type="text" name='user' />
+        </label>
+        <input type="submit" value='Add User' />
+    </form>
+
+    <hr />
+<!-- should users be replaced with blogs? -->
+    {% if blogs|length == 0 %}
+    <p>No blogs yet</p>
+    {% else %}
+
+        <ul>
+            {% for user in blogs %}
+            <li>{{user.name}}
+                <form method="POST" action="/delete-user" style="display:inline-block;">
+                    <input type="hidden" name="user-id" value="{{user.id}}" />
+                    <input type="submit" value="Done!" />
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+
+    {% endif %}
+
+    <hr />
+
+    <h2>Completed</h2>
+
+    <ul>
+        {% for user in completed_blogs %}
+        <li>{{user.name}}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

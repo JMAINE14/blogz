@@ -9,13 +9,22 @@
         </style>
     </head>
 <body>
-
-    <nav>
+      
+    <nav>        
         <br>
-        <a href="/">Main Blog Page</a> |
+        <a href="/blogs">Main Blog Page</a> |
         <a href="/newpost">Add Blog Entry</a> |
-        <!-- <a href="/viewpost">View Blog Post</a> | -->
+        
+        {% if session.get('username') %} 
+        <a href="logout">Logout</a>
+        {% else %}
+        <a href="/login">Login</a> |
+        <a href="/signup">Signup</a>
+        {% endif %}
     </nav>
+
+
+     
 
     {% block content %}
 

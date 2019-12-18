@@ -3,15 +3,15 @@
 {% block content %}
 
 <hr />
+<ul>
+    {% for post in blogs %}
+    <li><a href="/blogs?id={{post.id}}">{{post.title}}</a>
+        <p>{{post.body}}</p>
+        <small><a href="/blogs?username={{post.owner.username}}">{{ post.owner.username }}</a></small>
+    </li>
+    <hr />
+    {% endfor %}
+</ul>
 
-{% for post in blogs %}
-<li>{{post.title}}
-    <p>{{post.body}}</p>
-    <form method="GET" style="display:inline-block;">
-    </form>
-</li>
-{% endfor %}
-
-<hr />
 
 {% endblock %}

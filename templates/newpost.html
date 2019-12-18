@@ -2,21 +2,26 @@
 
 {% block content %}
 
-<!-- Displays the new posts created -->
-
-<h1>Build a Blog!</h1>
+<center><h1>New Blog Entry</h1></center>
 <form method='post'>
     <label>
-        Title: 
+        Title for your new blog:
+        <br>
         <input type="text" name='title' />
+        <span class="error">{{title_error}}</span>
     </label>
+    <br>
+    <br>
+    <br>
     <label>
-        Body: 
-        <input type="text" name='body' />
+        New blog:
+        <br>
+        <textarea name="body" rows="6" cols="25"></textarea>
+        <span class="error">{{body_error}}</span>
     </label>
-    <input type="submit" value='Add Blog' />
+    <br>
+    <br>
+    <input type="submit" value='Add Entry' />
 </form>
-
-<hr />
 
 {% endblock %}
